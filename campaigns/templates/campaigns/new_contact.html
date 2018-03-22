@@ -1,0 +1,21 @@
+{% extends "base_layout.html" %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="wrapper">
+    <h1>New Contact</h1>
+    <form action="#" method="post" class="site-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+{% else %}
+<h2>Please login or signup to continue.</h2>
+{% endif %}
+    
+{% endblock content %}
+
+    

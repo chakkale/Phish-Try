@@ -1,0 +1,14 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<div class="wrapper">
+    <h1>Welcome to Phish-Try</h1>
+    
+    {% if user.is_anonymous%}       
+    <h2>Please login or signup to continue.</h2>
+    {% endif %}
+
+</div>
+{% endblock content %}
+    
+

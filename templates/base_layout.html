@@ -1,0 +1,42 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Phish-Try</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    </head>
+    <body>
+        <header class="wrapper">
+            <h1><a href="{% url 'home' %}"><img src="{% static 'logo.png' %}" alt="logo"></a></h1>
+            <nav>
+                <ul>
+                    {% if user.is_authenticated%}
+                    <li><a href="{% url 'main:contact_list' %}">Contacts</a></li>
+                    <li><a href="{% url 'main:campaign_list' %}">Campaigns</a></li>
+                    <li>User:&nbsp;&nbsp;<b>{{ user.get_username }}</b></li>
+                    <li>
+                        <form action="{% url 'accounts:logout' %}" method="post" class="logout-link">
+                            {% csrf_token %}
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                        <li><a href="{% url 'main:new_campaign' %}" class="highlight">New Campaign</a></li>
+                    {% else %}
+                        <li><a href="{% url 'accounts:login' %}">Login</a></li>
+                        <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+        <div class="wrapper">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>

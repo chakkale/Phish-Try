@@ -1,0 +1,16 @@
+{% load static from staticfiles %}
+<head>
+    <title>Phish-Try Click Page</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="text-center">
+    <div style="margin-top: 300 !important;">
+        <p></p>
+        <p></p>
+        <h1>Dear {{ contact.name }}</h1>
+        <p>You've clicked a link for a phishing test application.</p>
+        <p>Please don't click any other links that you don't know the source of again.</p>
+        <p class="author">You've been added by user: <b> {{ contact.added_by.username }} </b></p>
+    </div>
+</div>

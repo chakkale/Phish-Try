@@ -1,0 +1,10 @@
+{% extends "base_layout.html" %}
+{% load render_table from django_tables2 %}
+{% block content %}
+    {% render_table table %}
+    <div class="wrapper">
+        <li><a href="{%url 'main:upload_contacts' %}">Upload Contacts</a></li>
+        <li><a href="{%url 'main:new_contact' %}">Add Contact</a></li>
+    </div>    
+{% endblock content %}
+    

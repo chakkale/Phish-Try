@@ -1,0 +1,17 @@
+{% extends "base_layout.html" %}
+
+
+{% block content %}
+
+<div class="wrapper">
+    <h2>Upload Contacts</h2>
+    <form action="#" method="post" class="site-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Upload"/>
+    </form>
+</div>
+
+
+{% endblock content %}
+    
