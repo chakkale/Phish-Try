@@ -1,0 +1,8 @@
+*.pyc 
+*.cpython-37.pyc
+phishtry/__pycache__/
+campaigns/__pycache__/
+accounts/__pycache__/
+backup/
+.DS_Store
+assets/.DS_Store
